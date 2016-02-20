@@ -33,6 +33,6 @@
 
     <tx:annotation-driven />
 
-    <context:component-scan base-package="gapp.web.model" />
+    <context:component-scan base-package="gapp.model"  />
 
 </beans>

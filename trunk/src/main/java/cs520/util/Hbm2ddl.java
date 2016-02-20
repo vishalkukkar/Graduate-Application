@@ -39,7 +39,7 @@ public class Hbm2ddl {
         // . export to database: false
         // . only drop the tables: false
         // . only create the tables: true
-        schemaExport.execute( true, false, false,true );
+        schemaExport.execute( true, false, true, false );
 
         System.out.println( "Done." );
     }
