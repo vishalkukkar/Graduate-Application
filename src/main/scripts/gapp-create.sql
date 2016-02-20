@@ -180,7 +180,7 @@
         foreign key (users_id) 
         references users;
 
-    create sequence hibernate_sequence;
+    create sequence hibernate_sequence START with 100;
     
     INSERT INTO users (id,email,first_name,last_name,password)
 VALUES (1,'admin@localhost.localdomain','admin','adminlast','abcd');
@@ -220,24 +220,3 @@ INSERT INTO users_roles (users_id,role_id)
 VALUES (4,3);
 INSERT INTO users_roles (users_id,role_id)
 VALUES (5,3);
-
-
-
-
-INSERT INTO department(department_id,department_name) VALUES(1,'Accounting');
-INSERT INTO department(department_id,department_name) VALUES(2,'Computer Science');
-
-
-INSERT INTO programs(program_id,program_name,department_id) VALUES(1,'MS',1);
-
-insert into termstatus(termstatus_id,term,year) 
-values(1,'fall','2016');
-
-
-INSERT INTO application(application_id,cin,citizenship,date,gender,phone,program_id,termstatus_id,user_id)
-values(1,'304360906','American','2012-12-31 11:30:45','male','6266324408',1,1,4);
-
-INSERT INTO additionalfields(additionalfields_id,field_name,field_type,isrequired,department_department_id) values (1,'GMAT','Number','true','1');
-
-insert into additionalfieldsvaluestore(id,value,additionalfields_additionalfields_id,application_application_id) 
-values(1,310,1,1);
