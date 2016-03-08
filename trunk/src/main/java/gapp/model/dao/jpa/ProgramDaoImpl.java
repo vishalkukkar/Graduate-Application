@@ -47,11 +47,19 @@ public class ProgramDaoImpl implements ProgramDao {
 	}
 
 	@Override
+	public Program getProgramById(int id) {
+		return entityManager.createQuery("from Program where id = '" + id + "'", Program.class).getSingleResult();
+		
+	}
+	
+	@Override
 	@Transactional
 	public void removeProgram(Program program) {
 		
 		entityManager.remove(program);
 
 	}
+
+	
 
 }

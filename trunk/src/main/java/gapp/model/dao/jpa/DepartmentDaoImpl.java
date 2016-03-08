@@ -52,4 +52,11 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		return entityManager.merge(additionalFields);
 	}
 
+	@Override
+	public List<AdditionalFields> getAdditionalField(Department department) {
+		
+		return entityManager.createQuery("from AdditionalFields where department = '" + department + "'", AdditionalFields.class)
+				.getResultList();
+	}
+
 }

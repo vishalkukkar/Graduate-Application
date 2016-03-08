@@ -71,7 +71,8 @@ public class LoginController {
 			} else if (superRole.equals("Staff")) {
 				return "redirect:/blank.html";
 			} else {
-				return "redirect:/blank.html";
+				User user1 = userDao.getUserByEmail(loginuser.getEmail());
+				return "redirect:/Studentdashboard.html?id="+user1.getId();
 			}
 		} else {
 			return "redirect:/login.html?id=1";

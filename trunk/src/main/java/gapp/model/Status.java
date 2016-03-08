@@ -20,6 +20,8 @@ public class Status implements Serializable {
 
 	@Column
 	private String statusName;
+	
+	
 
 	public Integer getId() {
 		return id;

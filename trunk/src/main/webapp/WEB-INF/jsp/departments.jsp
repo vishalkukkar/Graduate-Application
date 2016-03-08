@@ -154,27 +154,13 @@
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<i class="fa fa-bar-chart-o fa-fw"></i> All Departments  &nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-						&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-						&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-						&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-					&nbsp &nbsp&nbsp &nbsp&nbsp 
+					<i class="fa fa-bar-chart-o fa-fw"></i> All Departments  
+					
 					 <a href="<c:url value="adddepartment.html" />"
-				class="btn btn-primary square-btn-adjust"
+					class='btn btn-primary pull-right control-group'
 				class="nav navbar-top-links navbar-right" class="icon-bar">Add
 				Department</a>
+			
 				</div>
 
 
@@ -204,10 +190,10 @@
 									class="btn btn-primary " class="icon-bar">View Details</a></td>
 
 								<td><a
-									href="<c:url value="addprograms.html?id=${department.id}" />"
+									href="<c:url value="addprograms.html?deptId=${department.id}" />"
 									class="btn btn-primary " class="icon-bar">Add Program</a> &nbsp
 
-									<a href="<c:url value="addfield.html?id=${department.id}" />"
+									<a href="<c:url value="addfield.html?deptId=${department.id}" />"
 									class="btn btn-primary " class="icon-bar">Add Field</a> &nbsp <a
 									href="<c:url value="editDepartment.html?id=${department.id}" />"
 									class="btn btn-primary " class="icon-bar">Edit</a></td>

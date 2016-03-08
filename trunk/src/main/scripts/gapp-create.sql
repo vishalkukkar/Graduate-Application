@@ -1,13 +1,4 @@
 
-    create table academicrecords (
-        academicrecords_id int4 not null,
-        GPA varchar(255),
-        TOEFL varchar(255),
-        Transcript varchar(255),
-        application_application_id int4,
-        primary key (academicrecords_id)
-    );
-
     create table additionalfields (
         additionalfields_id int4 not null,
         field_name varchar(255) not null,
@@ -29,9 +20,16 @@
         application_id int4 not null,
         cin varchar(255),
         citizenship varchar(255),
-        date timestamp,
+        date date,
+        email varchar(255),
+        firstname varchar(255),
         gender varchar(255),
+        GPA varchar(255),
+        gre varchar(255),
+        lastname varchar(255),
         phone varchar(255),
+        TOEFL varchar(255),
+        Transcript varchar(255),
         program_id int4,
         termstatus_id int4,
         user_id int4,
@@ -56,12 +54,11 @@
 
     create table educationalbackground (
         educationalbackground_id int4 not null,
-        university_name varchar(255) not null,
-        degree varchar(255),
-        degree_earned varchar(255) not null,
-        endDate timestamp not null,
-        major varchar(255) not null,
-        startDate timestamp not null,
+        university_name varchar(255),
+        degree_earned varchar(255),
+        endDate varchar(255),
+        major varchar(255),
+        startDate varchar(255),
         application_id int4,
         primary key (educationalbackground_id)
     );
@@ -94,7 +91,7 @@
 
     create table users (
         id int4 not null,
-        email varchar(255) not null,
+        email varchar(255),
         first_name varchar(255),
         last_name varchar(255),
         password varchar(255) not null,
@@ -106,19 +103,8 @@
         role_id int4 not null
     );
 
-    alter table application 
-        add constraint UK_jwe4yjwogktj1q4hallbbl97c unique (cin);
-
-    alter table application 
-        add constraint UK_cltix5pp115r3sgybjbu2emev unique (phone);
-
     alter table users 
         add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email);
-
-    alter table academicrecords 
-        add constraint FK_8tw1rjnrllmpu3o976db9fukk 
-        foreign key (application_application_id) 
-        references application;
 
     alter table additionalfields 
         add constraint FK_bs4n0qw505bg3hyuw4s5v2hsl 
@@ -180,7 +166,8 @@
         foreign key (users_id) 
         references users;
 
-    create sequence hibernate_sequence START with 100;
+    create sequence hibernate_sequence start with 100 ;
+    
     
     INSERT INTO users (id,email,first_name,last_name,password)
 VALUES (1,'admin@localhost.localdomain','admin','adminlast','abcd');
@@ -220,3 +207,47 @@ INSERT INTO users_roles (users_id,role_id)
 VALUES (4,3);
 INSERT INTO users_roles (users_id,role_id)
 VALUES (5,3);
+
+
+
+
+INSERT INTO department(department_id,department_name) VALUES(1,'Accounting');
+INSERT INTO department(department_id,department_name) VALUES(2,'Computer Science');
+
+
+
+INSERT INTO programs(program_id,program_name,department_id) VALUES(1,'MS',1);
+INSERT INTO programs(program_id,program_name,department_id) VALUES(2,'MIS',1);
+INSERT INTO programs(program_id,program_name,department_id) VALUES(3,'cs520',2);
+INSERT INTO programs(program_id,program_name,department_id) VALUES(4,'cs470',2);
+INSERT INTO programs(program_id,program_name,department_id) VALUES(5,'cs320',2);
+
+
+
+
+INSERT INTO additionalfields(additionalfields_id,field_name,field_type,isrequired,department_department_id) values (1,'GMAT','Number','true','1');
+insert into additionalFields values (2,'SOP','File','FALSE',1);
+INSERT INTO additionalfields(additionalfields_id,field_name,field_type,isrequired,department_department_id) values (3,'GMAT_test','Number','true','1');
+insert into additionalFields values (4,'LOR','File','FALSE',1);
+INSERT INTO additionalfields(additionalfields_id,field_name,field_type,isrequired,department_department_id) values (5,'some text 1','Text','false','1');
+insert into additionalFields values (6,'some text 2','Text','FALSE',1);
+
+insert into additionalFields values (10,'Exctra curriculam','File','FALSE',2);
+INSERT INTO additionalfields(additionalfields_id,field_name,field_type,isrequired,department_department_id) values (11,'Statement of purpose','Text','true','2');
+insert into additionalFields values (12,'describe ypur self','Text','true',2);
+
+
+
+
+
+
+insert into status values (1,'New');
+insert into status values (2,'Pending Review');
+insert into status values (3,'Denied');
+insert into status values (4,'Rejected');
+insert into status values (5,'Recommend Admit');
+insert into status values (6,'Recommend Admit');
+insert into status values (7,'Not Submitted');
+insert into status values (8,'Submitted');
+
+

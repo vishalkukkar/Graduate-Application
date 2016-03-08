@@ -42,6 +42,23 @@ public class ApplicationStatus implements Serializable {
 	@JoinColumn(name = "application_id")
 	private Application application;
 	
+
+	
+	public ApplicationStatus(Integer id, Status status, Date create_date, Date revised_date, String comment,
+			Application application) {
+		super();
+		this.id = id;
+		this.status = status;
+		this.create_date = create_date;
+		this.revised_date = revised_date;
+		this.comment = comment;
+		this.application = application;
+	}
+
+	public ApplicationStatus(){
+		
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -50,13 +67,7 @@ public class ApplicationStatus implements Serializable {
 		this.id = id;
 	}
 
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+	
 
 	public Date getCreate_date() {
 		return create_date;
@@ -88,6 +99,14 @@ public class ApplicationStatus implements Serializable {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 }
