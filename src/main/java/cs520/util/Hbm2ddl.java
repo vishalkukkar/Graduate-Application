@@ -11,7 +11,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
  * Ejb3Configuration are deprecated and will be removed in Hibernate 5.
  * Hopefully by then SchemaExport can be initialized from persistence.xml
  * instead of hibernate.cfg.xml or hibernate.properties, and if so, we can
- * remove this class and run SchemaExport directly.
+ * remove this class and run SchemaExport directly. test
  */
 @SuppressWarnings("deprecation")
 public class Hbm2ddl {
