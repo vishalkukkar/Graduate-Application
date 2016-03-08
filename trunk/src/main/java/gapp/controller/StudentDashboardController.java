@@ -403,8 +403,8 @@ public class StudentDashboardController {
 		System.out.println("count" + count);
 
 		for (int i = 0; i < count; i++) {
-			if (major.length == 0 && university.length == 0 && degree.length == 0 && startDate.length == 0
-					&& endDate.length == 0) {
+			if (major[i].length() == 0 && university[i].length() == 0 && degree[i].length() == 0 && startDate[i].length() == 0
+					&& endDate[i].length() == 0){   
 
 				System.out.println("in this block\n\n\n");
 
@@ -668,8 +668,9 @@ public class StudentDashboardController {
 		System.out.println("count" + count);
 
 		for (int i = 0; i < count; i++) {
-			if (major.length == 0 && university.length == 0 && degree.length == 0 && startDate.length == 0
-					&& endDate.length == 0) {
+			
+			if (major[i].length() == 0 && university[i].length() == 0 && degree[i].length() == 0 && startDate[i].length() == 0
+					&& endDate[i].length() == 0) {
 
 				System.out.println("in this block\n\n\n");
 
@@ -984,8 +985,8 @@ public class StudentDashboardController {
 
 		System.out.println("count" + count);
 		for (int i = 0; i < count; i++) {
-			if (major.length == 0 && university.length == 0 && degree.length == 0 && startDate.length == 0
-					&& endDate.length == 0) {
+			if (major[i].length() == 0 && university[i].length() == 0 && degree[i].length() == 0 && startDate[i].length() == 0
+					&& endDate[i].length() == 0){
 
 			} else {
 				EducationalBackground educationalBackground = new EducationalBackground();
@@ -1261,8 +1262,8 @@ public class StudentDashboardController {
 		applicationDao.saveAppStatus(applicationStatus);
 
 		for (int i = 0; i < count; i++) {
-			if (major.length == 0 && university.length == 0 && degree.length == 0 && startDate.length == 0
-					&& endDate.length == 0) {
+			if (major[i].length() == 0 && university[i].length() == 0 && degree[i].length() == 0 && startDate[i].length() == 0
+					&& endDate[i].length() == 0){
 
 			} else {
 				EducationalBackground educationalBackground = new EducationalBackground();
