@@ -1,7 +1,4 @@
 
-    alter table academicrecords 
-        drop constraint FK_8tw1rjnrllmpu3o976db9fukk;
-
     alter table additionalfields 
         drop constraint FK_bs4n0qw505bg3hyuw4s5v2hsl;
 
@@ -37,8 +34,6 @@
 
     alter table users_roles 
         drop constraint FK_3b2cl2u4ck187o21r4uhp6psv;
-
-    drop table if exists academicrecords cascade;
 
     drop table if exists additionalfields cascade;
 

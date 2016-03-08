@@ -1,6 +1,7 @@
 package gapp.model.dao.jpa;
 
 import gapp.model.AdditionalFields;
+import gapp.model.AdditionalFieldsvalueStore;
 import gapp.model.Department;
 import gapp.model.dao.AdditionalFieldsDao;
 
@@ -39,6 +40,26 @@ public class AddtionalFieldDaoImpl implements AdditionalFieldsDao {
 	@Transactional
 	public void removeField(AdditionalFields additionalField) {
 		entityManager.remove(additionalField);
+	}
+
+	@Override
+	public AdditionalFields getAdditionalFieldById(int pId) {
+		return entityManager.createQuery("from AdditionalFields where id = '" + pId + "'", AdditionalFields.class).getSingleResult();
+		
+	}
+
+	@Override
+	@Transactional
+	public void save(AdditionalFieldsvalueStore additionalFieldsvalueStore) {
+		entityManager.merge(additionalFieldsvalueStore);
+		
+	}
+
+	@Override
+	public AdditionalFieldsvalueStore getAddValueById(int id) {
+		// TODO Auto-generated method stub
+		return entityManager.createQuery("from AdditionalFieldsvalueStore where id = '" + id + "'", AdditionalFieldsvalueStore.class).getSingleResult();
+		
 	}
 
 }

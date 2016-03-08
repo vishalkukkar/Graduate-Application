@@ -16,6 +16,8 @@ public interface DepartmentDao {
 	Department savedepartment(Department department);
 
 	AdditionalFields saveAddField(AdditionalFields additionalFields);
+
+	List<AdditionalFields> getAdditionalField(Department departmentById);
 	
 
 }

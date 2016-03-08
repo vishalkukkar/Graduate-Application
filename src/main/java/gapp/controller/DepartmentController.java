@@ -27,7 +27,6 @@ import gapp.model.dao.UserDao;
 @Controller
 @SessionAttributes("department")
 public class DepartmentController {
-
 	@Autowired
 	private UserDao userDao;
 
@@ -107,7 +106,7 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/addprograms.html", method = RequestMethod.GET)
-	public String addprogram(@RequestParam Integer id, ModelMap model) {
+	public String addprogram(@RequestParam(name="deptId") Integer deptId, ModelMap model) {
 
 		List<User> users = userDao.getUsers();
 		List<Department> departments = departmentDao.getDepartments();
@@ -119,10 +118,10 @@ public class DepartmentController {
 		model.put("applications", applications);
 		model.put("programs", program);
 
-		Department department = departmentDao.getDepartmentById(id);
+		Department department = departmentDao.getDepartmentById(deptId);
 		Program p = new Program();
 		model.put("program", p);
-		model.put("departmentId", id);
+		model.put("departmentId", deptId);
 		model.put("departmentname", department);
 		return "addprograms";
 	}
@@ -134,11 +133,12 @@ public class DepartmentController {
 		Department department = departmentDao.getDepartmentById(departmentId);
 		program.setDepartment(department);
 		program = programDao.saveProgram(program);
+		System.out.println("****************prgram id\n\n\n"+program.getId());
 		return "redirect:departments.html"; // why not user/list ???
 	}
 
 	@RequestMapping(value = "/addfield.html", method = RequestMethod.GET)
-	public String addfield(@RequestParam Integer id, ModelMap model) {
+	public String addfield(@RequestParam(name="deptId") Integer deptId, ModelMap model) {
 
 		List<User> users = userDao.getUsers();
 		List<Department> departments = departmentDao.getDepartments();
@@ -150,10 +150,10 @@ public class DepartmentController {
 		model.put("programs", program);
 
 		AdditionalFields additionalFields = new AdditionalFields();
-		Department department = departmentDao.getDepartmentById(id);
+		Department department = departmentDao.getDepartmentById(deptId);
 	//	additionalFields.setIsRequired(true);
 		model.put("AdditionalFields", additionalFields);
-		model.put("departmentId", id);
+		model.put("departmentId", deptId);
 		model.put("departmentname", department);
 
 		return "addfield";
@@ -207,6 +207,7 @@ public class DepartmentController {
 	@RequestMapping(value = "/RemoveProgram.html", method = RequestMethod.GET)
 	public String RemoveProgram(@RequestParam Integer id, @RequestParam Integer departmentId, ModelMap model) {
 
+		
 		int deptId = departmentId;
 		int progId = id;
 
@@ -270,6 +271,7 @@ public class DepartmentController {
 
 		Department department = departmentDao.getDepartmentById(departmentId);
 		program.setDepartment(department);
+		
 		program = programDao.saveProgram(program);
 		return "redirect:/editDepartment.html?id=" + departmentId;
 

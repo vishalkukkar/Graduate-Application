@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,27 +29,48 @@ public class Application implements Serializable {
 	@Column(name = "application_id")
 	private Integer id;
 
-	@Column(unique = true)
+	@Column(name = "firstname")
+	private String firstName;
+	
+	@Column(name = "lastname")
+	private String lastName;
+	
+	@Column(name = "email")
+	private String email;
+	
+	@Column
 	private String cin;
 
-	@Column(name = "phone", unique = true)
+	@Column(name = "phone")
 	private String phoneNumber;
 
 	@Column(name = "gender")
 	private String gender;
 
 	@Column(name = "date")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date date;
 
 	@Column(name = "citizenship")
 	private String citizenship;
+	
+	@Column(name = "gre")
+	private String gre;
+	
+	@Column(name = "TOEFL", nullable = true)
+	private String toefl;
 
+	@Column(name = "GPA")
+	private String gpa;
+
+	@Column(name = "Transcript")
+	private String transcript;
+	
 	@ManyToOne
 	@JoinColumn(name = "program_id")
 	private Program program;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "termstatus_id")
 	private TermStatus termStatus;
 
@@ -56,23 +79,48 @@ public class Application implements Serializable {
 	private User user;
 
 	@OneToMany(mappedBy = "application")
+	@OrderBy("create_date desc")
 	private Set<ApplicationStatus> applicationStatus;
 
 	@OneToMany(mappedBy = "application")
 	private Set<AdditionalFieldsvalueStore> additionalFieldsvalueStores;
 
-	// Added newly
-
-	@OneToMany(mappedBy = "application")
+	@OneToMany(mappedBy = "application",cascade = {CascadeType.ALL})
 	private List<EducationalBackground> educationalBackground;
-
-	// @OneToOne
-	// private AcademicRecords academicRecords;
-	//
-	// added newly
-
+	
+	
 	public Integer getId() {
 		return id;
+	}
+
+	public Application() {
+
+	}
+
+	
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setId(Integer id) {
@@ -166,5 +214,62 @@ public class Application implements Serializable {
 	public void setEducationalBackground(List<EducationalBackground> educationalBackground) {
 		this.educationalBackground = educationalBackground;
 	}
+
+	public String getToefl() {
+		return toefl;
+	}
+
+	public void setToefl(String toefl) {
+		this.toefl = toefl;
+	}
+
+	public String getGpa() {
+		return gpa;
+	}
+
+	public void setGpa(String gpa) {
+		this.gpa = gpa;
+	}
+
+	public String getTranscript() {
+		return transcript;
+	}
+
+	public void setTranscript(String transcript) {
+		this.transcript = transcript;
+	}
+
+	public String getGre() {
+		return gre;
+	}
+
+	public void setGre(String gre) {
+		this.gre = gre;
+	}
+
+	public Application(Integer id, String cin, String phoneNumber, String gender, Date date, String citizenship,
+			String gre, String toefl, String gpa, String transcript, Program program, TermStatus termStatus, User user,
+			Set<ApplicationStatus> applicationStatus, Set<AdditionalFieldsvalueStore> additionalFieldsvalueStores,
+			List<EducationalBackground> educationalBackground) {
+		
+		this.id = id;
+		this.cin = cin;
+		this.phoneNumber = phoneNumber;
+		this.gender = gender;
+		this.date = date;
+		this.citizenship = citizenship;
+		this.gre = gre;
+		this.toefl = toefl;
+		this.gpa = gpa;
+		this.transcript = transcript;
+		this.program = program;
+		this.termStatus = termStatus;
+		this.user = user;
+		this.applicationStatus = applicationStatus;
+		this.additionalFieldsvalueStores = additionalFieldsvalueStores;
+		this.educationalBackground = educationalBackground;
+	}
+
+	
 
 }

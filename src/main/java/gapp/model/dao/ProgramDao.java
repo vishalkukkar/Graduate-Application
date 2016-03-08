@@ -20,4 +20,6 @@ public interface ProgramDao {
 	List<Program> getprogramcount();
 
 	void removeProgram(Program program);
+
+	Program getProgramById(int id);
 }
