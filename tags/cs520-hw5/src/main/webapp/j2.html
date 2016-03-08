@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="javascript/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		$("#click").click(function(){
+			var firstname = $("input[name='firstname']").val();
+
+			var lastname = $("input[name='lastname']").val();
+			$("#who").html(firstname);
+			$("#t1").append("<tr><td>" + firstname + "</td><td>" + lastname + "</td></tr> ");
+		});
+	});
+</script>
+</head>
+<body>
+
+<h2>Hello <span id="who"></span>world</h2>
+
+<table id="t1" border="1">
+	<tr>
+		<td>
+		firstname
+		</td>
+		
+		<td>
+		Lastname
+		</td>
+	
+	</tr>
+	
+</table>
+<br/>
+
+<form id="f1">
+	firstname:<input type="text" name="firstname"/><br/>
+	Lastname:<input type="text" name="lastname"/><br/>
+	
+	
+</form>
+
+<button  id="click">Click Me</button>
+	
+</body>
+</html>
